@@ -1,7 +1,5 @@
 plugins {
     id 'java'
-    id 'org.springframework.boot' version '3.4.0'
-    id 'io.spring.dependency-management' version '1.1.6'
 }
 
 group = 'org.brinst'
@@ -24,15 +22,19 @@ repositories {
 }
 
 dependencies {
-    implementation 'org.springframework.boot:spring-boot-starter'
-    compileOnly 'org.projectlombok:lombok'
-    annotationProcessor 'org.projectlombok:lombok'
-    testImplementation 'org.springframework.boot:spring-boot-starter-test'
     testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
     implementation 'org.yaml:snakeyaml:2.3'
     implementation 'com.fasterxml.jackson.core:jackson-annotations:2.18.2'
+    testRuntimeOnly 'org.junit.platform:junit-platform-launcher:1.8.2'
+    testImplementation 'org.junit.jupiter:junit-jupiter:5.5.0'
+    testImplementation 'org.junit.platform:junit-platform-engine:1.8.2'
+
 }
 
 tasks.named('test') {
     useJUnitPlatform()
+}
+
+tasks.withType(JavaCompile) {
+    options.annotationProcessorPath = configurations.compileClasspath
 }

@@ -5,12 +5,31 @@ import java.time.LocalDate;
 import java.util.concurrent.ThreadLocalRandom;
 
 import org.brinst.fakedatagenerator.annotation.FakeField;
+import org.brinst.fakedatagenerator.enums.LangType;
 import org.brinst.fakedatagenerator.service.FakeDataImporter;
 
 public class FakeDataGenerator {
-	static FakeDataImporter fakeDataImporter;
+	private static FakeDataImporter fakeDataImporter;
+
 	public static <T> T generate(Class<T> clazz) {
-		fakeDataImporter = new FakeDataImporter();
+		fakeDataImporter = new FakeDataImporter(LangType.KO);
+		try {
+			T instance = clazz.getDeclaredConstructor().newInstance();
+			for (Field field : clazz.getDeclaredFields()) {
+				if (field.isAnnotationPresent(FakeField.class)) {
+					FakeField fakeField = field.getAnnotation(FakeField.class);
+					field.setAccessible(true);
+					field.set(instance, generateFakeValue(fakeField));
+				}
+			}
+			return instance;
+		} catch (Exception e) {
+			throw new RuntimeException("Error generating DTO", e);
+		}
+	}
+
+	public static <T> T generate(Class<T> clazz, LangType langType) {
+		fakeDataImporter = new FakeDataImporter(langType);
 		try {
 			T instance = clazz.getDeclaredConstructor().newInstance();
 			for (Field field : clazz.getDeclaredFields()) {
