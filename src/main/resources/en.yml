@@ -1,0 +1,17 @@
+name:
+  first_name: [ "John", "Jane", "Alex", "Chris", "Michael", "Emily", "Sarah", "Daniel", "Matthew", "Sophia", "Olivia",
+                "William", "James", "Isabella", "Charlotte", "Lucas", "Emma", "Amelia", "Noah", "Henry" ]
+  last_name: [ "Smith", "Johnson", "Williams", "Brown", "Jones", "Garcia", "Martinez", "Taylor", "Thomas", "Anderson",
+               "White", "Harris", "Martin", "Clark", "Lee", "Walker", "Hall", "Allen", "Young", "Scott" ]
+email:
+  id: [
+    "john.doe", "jane.smith", "alex.lee", "chris.park", "kim.choi",
+    "michael.brown", "emily.clark", "sarah.jones", "daniel.garcia", "sophia.martin",
+    "will.james", "charlotte.wilson", "emma.thomas", "henry.walker", "lucas.allen",
+    "amelia.scott", "noah.young", "olivia.king", "matthew.hall", "oliver.taylor"
+  ]
+  domain: [
+    "gmail.com", "yahoo.com", "hotmail.com", "outlook.com", "icloud.com",
+    "aol.com", "live.com", "protonmail.com", "zoho.com", "mail.com",
+    "yandex.com", "gmx.com", "fastmail.com", "naver.com", "daum.net"
+  ]

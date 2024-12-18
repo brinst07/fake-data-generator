@@ -5,9 +5,12 @@ import java.time.LocalDate;
 import java.util.concurrent.ThreadLocalRandom;
 
 import org.brinst.fakedatagenerator.annotation.FakeField;
+import org.brinst.fakedatagenerator.service.FakeDataImporter;
 
 public class FakeDataGenerator {
+	static FakeDataImporter fakeDataImporter;
 	public static <T> T generate(Class<T> clazz) {
+		fakeDataImporter = new FakeDataImporter();
 		try {
 			T instance = clazz.getDeclaredConstructor().newInstance();
 			for (Field field : clazz.getDeclaredFields()) {
@@ -25,8 +28,10 @@ public class FakeDataGenerator {
 
 	private static Object generateFakeValue(FakeField fakeField) {
 		return switch (fakeField.type()) {
-			case NAME -> "John Doe"; // Example value
-			case EMAIL -> "john.doe@example.com";
+			case NAME -> fakeDataImporter.getFullName(); // Example value
+			case FIRST_NAME -> fakeDataImporter.getFirstName(); // Example value
+			case LAST_NAME -> fakeDataImporter.getLastName(); // Example value
+			case EMAIL -> fakeDataImporter.getEmail();
 			case PHONE -> "123-456-7890";
 			case NUMBER -> ThreadLocalRandom.current().nextInt(fakeField.min(), fakeField.max() + 1);
 			case DATE -> LocalDate.now();

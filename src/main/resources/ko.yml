@@ -1,8 +1,27 @@
-ko:
-  name:
-    first_name: ["희찬","서현","연훈","준오","문섭","종우","현규","기훈","경수","우영","민준","태양"]
-    last_name: ["박","김","오","서","권","이","남","최"]
-    format: "#{last_name} #{fist_name}"
-
-  phone_number:
-    format: "010-####-####"
+name:
+  first_name:
+    [ "희찬", "서현", "연훈", "준오", "문섭", "종우", "현규", "기훈", "경수", "우영", "민준", "태양",
+      "성민", "수현", "지훈", "다희", "혜진", "민지", "지원", "수빈", "예진", "주원", "유진", "은서",
+      "하윤", "다연", "시윤", "정민", "도현", "지수", "나은", "시은", "하준", "윤서", "재원", "성현",
+      "채원", "세현", "민서", "은우", "정훈", "태훈", "승민", "우진", "예준", "지율", "지안", "서우" ]
+  last_name:
+    [ "박", "김", "오", "서", "권", "이", "남", "최", "장", "한", "정", "유", "임", "노", "신", "문",
+      "양", "강", "조", "전", "황", "주", "송", "배", "백", "윤", "천", "홍", "곽", "구", "나", "임",
+      "원", "천", "함", "허", "류", "변", "심", "왕", "반", "라", "안", "표", "두", "방", "빈", "우" ]
+email:
+  id:
+    [ "kim.hyun", "park.jun", "lee.chan", "choi.min", "jeong.soo",
+      "kang.ha", "yoon.seo", "jung.woo", "hong.jin", "jang.sun",
+      "kim.dae", "moon.hee", "shin.jae", "cho.seong", "bae.seo",
+      "nam.hyun", "kwon.yoon", "oh.gyung", "ahn.jin", "lee.ji",
+      "yoo.sung", "hwang.jun", "song.ha", "bae.kang", "jung.sun",
+      "noh.min", "ko.woo", "im.jae", "shin.so", "kim.joon",
+      "jang.ye", "seo.ri", "ha.young", "jo.won", "ryu.ha",
+      "oh.eun", "yang.dong", "ahn.jin", "kang.soo", "choi.da",
+      "kim.min", "han.sun", "jeon.yoon", "hong.woo", "lee.kang" ]
+  domain:
+    [ "naver.com", "daum.net", "gmail.com", "hanmail.net", "nate.com",
+      "kakao.com", "outlook.com", "yahoo.co.kr", "dreamwiz.com",
+      "hotmail.com", "lycos.co.kr", "paran.com", "empal.com",
+      "hanmail.net", "korea.com", "naver.net", "daum.com", "netian.net",
+      "hotmail.co.kr", "gmail.co.kr", "cyworld.com" ]
