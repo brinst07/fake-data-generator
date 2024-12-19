@@ -11,6 +11,6 @@ import org.brinst.fakedatagenerator.enums.DataType;
 @Retention(RetentionPolicy.RUNTIME)
 public @interface FakeField {
 	DataType type();
-	int min() default 0;
-	int max() default 0;
+	int min() default -1;
+	int max() default -1;
 }

@@ -3,6 +3,7 @@ name:
                 "William", "James", "Isabella", "Charlotte", "Lucas", "Emma", "Amelia", "Noah", "Henry" ]
   last_name: [ "Smith", "Johnson", "Williams", "Brown", "Jones", "Garcia", "Martinez", "Taylor", "Thomas", "Anderson",
                "White", "Harris", "Martin", "Clark", "Lee", "Walker", "Hall", "Allen", "Young", "Scott" ]
+
 email:
   id: [
     "john.doe", "jane.smith", "alex.lee", "chris.park", "kim.choi",
