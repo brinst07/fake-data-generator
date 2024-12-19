@@ -29,6 +29,11 @@ jobs:
       - name: Run Tests
         run: ./gradlew test
 
+      - name: Upload coverage to Codecov
+        uses: codecov/codecov-action@v5
+        env:
+          CODECOV_TOKEN: ${{ secrets.CODECOV_ORG_TOKEN }}
+
   release:
     name: Create GitHub Release
     runs-on: ubuntu-latest
