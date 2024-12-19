@@ -31,6 +31,8 @@ jobs:
 
       - name: Upload coverage to Codecov
         uses: codecov/codecov-action@v5
+        with:
+          file: ./build/test-results/test/binary/TEST-org.brinst.fakedatagenerator.FakeGeneratorTests.xml
         env:
           CODECOV_TOKEN: ${{ secrets.CODECOV_ORG_TOKEN }}
 
