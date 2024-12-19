@@ -1,4 +1,5 @@
 [![](https://jitpack.io/v/brinst07/fake-data-generator.svg)](https://jitpack.io/#brinst07/fake-data-generator)
+[![codecov](https://codecov.io/gh/brinst07/fake-data-generator/graph/badge.svg?token=IV77EABOEC)](https://codecov.io/gh/brinst07/fake-data-generator)
 # Fake Data Generator
 ## 소개
 Fake Data Generator는 테스트코드에서 DTO에 가짜 데이터를 자동으로 채워주는 라이브러리입니다.

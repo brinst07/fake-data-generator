@@ -29,6 +29,18 @@ jobs:
       - name: Run Tests
         run: ./gradlew test
 
+      - name: Run JacocoTest
+        run: ./gradlew clean test jacocoTestReport
+
+      - name: Upload coverage to Codecov
+        uses: codecov/codecov-action@v5
+        with:
+          file: ./build/reports/jacoco/test/jacocoTestReport.xml
+          fail_ci_if_error: true
+        env:
+          CODECOV_TOKEN: ${{ secrets.CODECOV_ORG_TOKEN }}
+
+
   release:
     name: Create GitHub Release
     runs-on: ubuntu-latest

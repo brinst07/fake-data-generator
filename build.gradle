@@ -1,5 +1,6 @@
 plugins {
     id 'java'
+    id 'jacoco'
 }
 
 group = 'org.brinst'
@@ -38,3 +39,13 @@ tasks.named('test') {
 tasks.withType(JavaCompile) {
     options.annotationProcessorPath = configurations.compileClasspath
 }
+
+jacocoTestReport {
+    reports {
+        xml.required = true
+        html.required = false
+        html.outputLocation = layout.buildDirectory.dir('jacocoHtml')
+    }
+}
+
+check.dependsOn jacocoTestReport
