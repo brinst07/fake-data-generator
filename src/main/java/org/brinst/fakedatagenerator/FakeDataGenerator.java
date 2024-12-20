@@ -29,6 +29,23 @@ public class FakeDataGenerator {
 		}
 	}
 
+	public static <T> T generate(Class<T> clazz, LangType langType) {
+		fakeDataImporter = new FakeDataImporter(langType);
+		try {
+			T instance = clazz.getDeclaredConstructor().newInstance();
+			for (Field field : clazz.getDeclaredFields()) {
+				if (field.isAnnotationPresent(FakeField.class)) {
+					FakeField fakeField = field.getAnnotation(FakeField.class);
+					field.setAccessible(true);
+					field.set(instance, generateFakeValue(fakeField, field));
+				}
+			}
+			return instance;
+		} catch (Exception e) {
+			throw new RuntimeException("Error generating DTO", e);
+		}
+	}
+
 	private static Object generateFakeValue(FakeField fakeField, Field fieldType) {
 		return switch (fakeField.type()) {
 			case NAME -> fakeDataImporter.getFullName(); // Example value

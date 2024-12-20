@@ -6,6 +6,7 @@ import java.io.InputStream;
 import java.time.LocalDate;
 
 import org.brinst.fakedatagenerator.dto.TestDTO;
+import org.brinst.fakedatagenerator.enums.LangType;
 import org.brinst.fakedatagenerator.service.dto.FakeDataDTO;
 import org.brinst.fakedatagenerator.utils.CustomPropertyUtils;
 import org.junit.jupiter.api.DisplayName;
@@ -65,6 +66,16 @@ public class FakeGeneratorTests {
 		assertThat(generateDTO.getBirthday()).isInstanceOf(LocalDate.class);
 		assertThat(generateDTO.getBirthday()).isBetween(LocalDate.now().minusDays(365), LocalDate.now().plusDays(365));
 	}
+
+	@Test
+	@DisplayName("en 데이터 주입 테스트")
+	void test() {
+		FakeDataDTO enFakeData = getFakeData("/en.yml");
+		TestDTO generateDTO = FakeDataGenerator.generate(TestDTO.class, LangType.EN);
+		//then
+		assertThat(enFakeData.getName().getFirstName()).contains(generateDTO.getFirstName());
+		assertThat(enFakeData.getName().getLastName()).contains(generateDTO.getLastName());	}
+
 
 	private FakeDataDTO getFakeData(String fileName) {
 		try (InputStream inputStream = this.getClass().getResourceAsStream(fileName)) {
