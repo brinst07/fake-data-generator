@@ -7,13 +7,20 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 public class FakeDataDTO {
 	private NameDTO name;
 	private EmailDTO email;
+	@JsonProperty("phone_format")
+	private String phoneFormat;
+
+	public void setPhoneFormat(String phoneFormat) {
+		this.phoneFormat = phoneFormat;
+	}
 
 	public FakeDataDTO() {
 	}
 
-	public FakeDataDTO(NameDTO name, EmailDTO email) {
+	public FakeDataDTO(NameDTO name, EmailDTO email, String phoneFormat) {
 		this.name = name;
 		this.email = email;
+		this.phoneFormat = phoneFormat;
 	}
 
 	public NameDTO getName() {

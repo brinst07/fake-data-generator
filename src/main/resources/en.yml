@@ -16,3 +16,5 @@ email:
     "aol.com", "live.com", "protonmail.com", "zoho.com", "mail.com",
     "yandex.com", "gmx.com", "fastmail.com", "naver.com", "daum.net"
   ]
+
+phone_format: "01$-$$$$-$$$$"

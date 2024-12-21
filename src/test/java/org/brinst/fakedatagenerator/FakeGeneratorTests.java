@@ -15,7 +15,7 @@ import org.yaml.snakeyaml.LoaderOptions;
 import org.yaml.snakeyaml.Yaml;
 import org.yaml.snakeyaml.constructor.Constructor;
 
-public class FakeGeneratorTests {
+class FakeGeneratorTests {
 	@Test
 	@DisplayName("이름 데이터 주입 테스트")
 	void init_fake_data_test() {
@@ -69,12 +69,13 @@ public class FakeGeneratorTests {
 
 	@Test
 	@DisplayName("en 데이터 주입 테스트")
-	void test() {
+	void init_en_data_test() {
 		FakeDataDTO enFakeData = getFakeData("/en.yml");
 		TestDTO generateDTO = FakeDataGenerator.generate(TestDTO.class, LangType.EN);
 		//then
 		assertThat(enFakeData.getName().getFirstName()).contains(generateDTO.getFirstName());
-		assertThat(enFakeData.getName().getLastName()).contains(generateDTO.getLastName());	}
+		assertThat(enFakeData.getName().getLastName()).contains(generateDTO.getLastName());
+	}
 
 
 	private FakeDataDTO getFakeData(String fileName) {

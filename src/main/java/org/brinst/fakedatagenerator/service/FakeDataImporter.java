@@ -12,6 +12,7 @@ import org.yaml.snakeyaml.Yaml;
 import org.yaml.snakeyaml.constructor.Constructor;
 
 public class FakeDataImporter {
+	private final FakeDataDTO fakeData;
 	private final String fullName;
 	private final String firstName;
 	private final String lastName;
@@ -20,6 +21,7 @@ public class FakeDataImporter {
 
 	public FakeDataImporter(LangType langType) {
 		this.langType = langType;
+		this.fakeData = getFakeData();
 		this.firstName = generateRandomValue(getFirstNames());
 		this.lastName = generateRandomValue(getLastNames());
 		this.fullName = firstName + " " + lastName;
@@ -31,19 +33,19 @@ public class FakeDataImporter {
 	}
 
 	private List<String> getFirstNames() {
-		return getFakeData().getName().getFirstName();
+		return this.fakeData.getName().getFirstName();
 	}
 
 	private List<String> getLastNames() {
-		return getFakeData().getName().getLastName();
+		return this.fakeData.getName().getLastName();
 	}
 
 	private List<String> getEmailIds() {
-		return getFakeData().getEmail().getId();
+		return this.fakeData.getEmail().getId();
 	}
 
 	private List<String> getEmailDomains() {
-		return getFakeData().getEmail().getDomain();
+		return this.fakeData.getEmail().getDomain();
 	}
 
 	private FakeDataDTO getFakeData() {
