@@ -52,7 +52,7 @@ public class FakeDataGenerator {
 			case FIRST_NAME -> fakeDataImporter.getFirstName(); // Example value
 			case LAST_NAME -> fakeDataImporter.getLastName(); // Example value
 			case EMAIL -> fakeDataImporter.getEmail();
-			case PHONE -> "123-456-7890";
+			case PHONE -> fakeDataImporter.getPhoneNumber();
 			case NUMBER -> generateNumber(fakeField.min(), fakeField.max());
 			case DATE -> {
 				// 필드 타입에 맞게 LocalDate 또는 LocalDateTime 생성

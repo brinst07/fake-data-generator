@@ -12,18 +12,36 @@ import org.yaml.snakeyaml.Yaml;
 import org.yaml.snakeyaml.constructor.Constructor;
 
 public class FakeDataImporter {
+	private final FakeDataDTO fakeData;
 	private final String fullName;
 	private final String firstName;
 	private final String lastName;
 	private final String email;
+	private final String phoneNumber;
 	private final LangType langType;
 
 	public FakeDataImporter(LangType langType) {
 		this.langType = langType;
+		this.fakeData = getFakeData();
 		this.firstName = generateRandomValue(getFirstNames());
 		this.lastName = generateRandomValue(getLastNames());
 		this.fullName = firstName + " " + lastName;
 		this.email = generateRandomValue(getEmailIds()) + "@" + generateRandomValue(getEmailDomains());
+		this.phoneNumber = generateRandomPhoneNumber();
+	}
+
+	private String generateRandomPhoneNumber() {
+		String phoneFormat = this.fakeData.getPhoneFormat();
+		StringBuilder number = new StringBuilder();
+		for (char c : phoneFormat.toCharArray()) {
+			if (c == '$') {
+				int randomValue = ThreadLocalRandom.current().nextInt(9);
+				number.append(randomValue);
+			} else {
+				number.append(c);
+			}
+		}
+		return number.toString();
 	}
 
 	private <T> T generateRandomValue(List<T> values) {
@@ -31,19 +49,19 @@ public class FakeDataImporter {
 	}
 
 	private List<String> getFirstNames() {
-		return getFakeData().getName().getFirstName();
+		return this.fakeData.getName().getFirstName();
 	}
 
 	private List<String> getLastNames() {
-		return getFakeData().getName().getLastName();
+		return this.fakeData.getName().getLastName();
 	}
 
 	private List<String> getEmailIds() {
-		return getFakeData().getEmail().getId();
+		return this.fakeData.getEmail().getId();
 	}
 
 	private List<String> getEmailDomains() {
-		return getFakeData().getEmail().getDomain();
+		return this.fakeData.getEmail().getDomain();
 	}
 
 	private FakeDataDTO getFakeData() {
@@ -81,5 +99,9 @@ public class FakeDataImporter {
 
 	public String getEmail() {
 		return email;
+	}
+
+	public String getPhoneNumber() {
+		return phoneNumber;
 	}
 }
