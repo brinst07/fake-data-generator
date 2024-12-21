@@ -10,6 +10,10 @@ public class FakeDataDTO {
 	@JsonProperty("phone_format")
 	private String phoneFormat;
 
+	public String getPhoneFormat() {
+		return phoneFormat;
+	}
+
 	public void setPhoneFormat(String phoneFormat) {
 		this.phoneFormat = phoneFormat;
 	}

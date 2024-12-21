@@ -17,4 +17,4 @@ email:
     "yandex.com", "gmx.com", "fastmail.com", "naver.com", "daum.net"
   ]
 
-phone_format: "01$-$$$$-$$$$"
+phone_format: "010-$$$$-$$$$"

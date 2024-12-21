@@ -26,4 +26,4 @@ email:
       "hanmail.net", "korea.com", "naver.net", "daum.com", "netian.net",
       "hotmail.co.kr", "gmail.co.kr", "cyworld.com" ]
 
-phone_format: "01$-$$$$-$$$$"
+phone_format: "010-$$$$-$$$$"

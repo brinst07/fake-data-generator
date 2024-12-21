@@ -77,6 +77,12 @@ class FakeGeneratorTests {
 		assertThat(enFakeData.getName().getLastName()).contains(generateDTO.getLastName());
 	}
 
+	@Test
+	@DisplayName("phone number 주입")
+	void init_phone_number_test() {
+		TestDTO generateDTO = FakeDataGenerator.generate(TestDTO.class);
+		assertThat(generateDTO.getPhone()).isNotNull();
+	}
 
 	private FakeDataDTO getFakeData(String fileName) {
 		try (InputStream inputStream = this.getClass().getResourceAsStream(fileName)) {

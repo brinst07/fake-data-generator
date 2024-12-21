@@ -24,6 +24,12 @@ public class TestDTO {
 	private LocalDate birthday;
 	@FakeField(type = DataType.EMAIL)
 	private String email;
+	@FakeField(type = DataType.PHONE)
+	private String phone;
+
+	public String getPhone() {
+		return phone;
+	}
 
 	public int getMinAge() {
 		return minAge;
